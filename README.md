@@ -12,6 +12,3 @@ Things you may want to cover:
 * Configuration
 	Run => 1-rails db:create
 			2- rails db:migrate
-
-
-

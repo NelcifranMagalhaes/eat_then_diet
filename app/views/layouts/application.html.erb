@@ -5,10 +5,83 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    <%= yield %>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+
+      <%= link_to root_path, title: "Eat Then", class: "brand-logo" do %>
+      <%= image_tag "goku.jpg", title: "Eat Then Diet", style:"width: 28px;" %>
+      Eat Then Diet
+    <% end %>
+
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <%- if current_user.blank?%>
+
+          <%= link_to 'Log in',   new_user_session_path   ,:class =>"brand-logo right" %>
+
+          <% end %>
+        </li>
+        <li>
+          <%- if current_user.blank?%>
+
+          <%= link_to 'Log in',   new_user_session_path   ,:class =>"brand-logo right" %>
+
+          <% end %>
+        </li>
+        <li>
+          <%- if current_user.blank?%>
+
+            <%= link_to 'Sign Up',    new_user_registration_path    ,:class =>"brand-logo right" %>
+
+            <% end %>
+        </li>
+
+        <li>
+          <%- if current_user.present?%>
+        
+          <div href="#" class="brand-logo right">
+            <i class="material-icons">close</i>
+            <%= link_to('Log out'.html_safe,  destroy_user_session_path , method: 'delete')%>
+          </div>
+
+          <% end %>
+        </li>
+    </ul>
+
+    </div>
+
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Eat then</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Easiest Diets to Follow </h5>
+      </div>
+      <div class="row center">
+            <%= yield %>
+
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+
+  <footer class="page-footer light-blue">
+
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
   </body>
+
 </html>

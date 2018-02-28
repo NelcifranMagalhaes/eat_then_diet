@@ -27,3 +27,5 @@
 
 <%= link_to 'Edit', edit_diet_path(@diet) %> |
 <%= link_to 'Back', diets_path %>
+
+<%= line_chart @diet.weights.map { |weight| [weight.weight_date, weight.value] }  %>

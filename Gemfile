@@ -30,6 +30,7 @@ gem 'coffee-rails', '~> 4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
+gem 'chartkick' #gem de graficos
 
 gem 'faker'
 group :development, :test do

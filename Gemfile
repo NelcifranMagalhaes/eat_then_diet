@@ -6,10 +6,9 @@ git_source(:github) do |repo_name|
 end
 #materialize for front end
 gem 'materialize-sass', '~> 1.0.0.alpha4'
-
+gem 'materialize-form'
 gem 'material_icons'
-
-
+gem 'bootstrap-datepicker-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
@@ -23,14 +22,13 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
-
+gem 'simple_form'
+gem 'cocoon'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-
 gem 'devise'
 
 gem 'faker'

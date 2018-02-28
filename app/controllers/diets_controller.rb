@@ -16,6 +16,7 @@ class DietsController < ApplicationController
   # GET /diets/new
   def new
     @diet = Diet.new
+    @diet_field = @diet.diet_fields.build
   end
 
   # GET /diets/1/edit
@@ -26,6 +27,7 @@ class DietsController < ApplicationController
   # POST /diets.json
   def create
     @diet = Diet.new(diet_params)
+    @diet.user_id = current_user.id
 
     respond_to do |format|
       if @diet.save
@@ -70,6 +72,6 @@ class DietsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def diet_params
-      params.require(:diet).permit(:begin_date, :end_date, :weight, :height, :ideal_weight)
+      params.require(:diet).permit(:begin_date, :end_date, :weight, :height, :ideal_weight,diet_fields_attributes: [:id, :description, :schedule,:meal, :_destroy])
     end
 end

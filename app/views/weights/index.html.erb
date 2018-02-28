@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Weights</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Weight date</th>
+      <th>Diet date</th>
+      <th colspan="3">Actions</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weights.each do |weight| %>
+      <tr>
+        <td><%= weight.value %></td>
+        <td><%= weight.weight_date %></td>
+        <td><%= weight.diet.begin_date if weight.diet.present?%> / <%=weight.diet.end_date if weight.diet.present?%></td>
+
+        <td><%= link_to 'Show', weight %></td>
+        <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
+        <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Weight', new_weight_path %>

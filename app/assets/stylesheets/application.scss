@@ -1,16 +1,18 @@
 /*
-
+ *= require bootstrap-datepicker
  *= require_tree .
  *= require_self
  */
 
 @import "material_icons";
 @import "materialize";
-
+@import "bootstrap-datepicker";
 
 .icon-block {
   padding: 0 15px;
 }
+
 .icon-block .material-icons {
 	font-size: inherit;
 }
+

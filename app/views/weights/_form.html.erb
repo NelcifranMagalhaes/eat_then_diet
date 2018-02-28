@@ -1,0 +1,32 @@
+<div class="row">
+
+	<%= simple_form_for(@weight) do |f| %>
+	  <%= f.error_notification %>
+
+		<div class="row">
+	      <div class="input-field col s6">
+	        <%= f.input :value,as: :string%>
+
+	      </div>
+	    </div>
+
+	    <div class="row">
+	      <div class="input-field col s6">
+	        <%= f.input :weight_date,as: :string%>
+
+	      </div>
+	    </div>
+
+	    <div class="row">
+	      <div class="input-field col s6">
+	        <%= f.association :diet, label_method: :begin_date,collection: Diet.where(user_id: current_user.id), prompt: "Choose a Diet"%>
+
+	      </div>
+	    </div>
+
+	  <div class="row">
+	    <%= f.button :submit ,class: 'btn btn-primary grey'%>
+	  </div>
+	<% end %>
+</div>
+

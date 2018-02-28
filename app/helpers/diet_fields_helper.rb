@@ -1,0 +1,2 @@
+module DietFieldsHelper
+end

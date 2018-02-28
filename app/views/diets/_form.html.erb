@@ -1,42 +1,52 @@
-<%= form_with(model: diet, local: true) do |form| %>
-  <% if diet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(diet.errors.count, "error") %> prohibited this diet from being saved:</h2>
+<div class="row">
+  <%= simple_form_for @diet do |form| %>
+      <%= form.error_notification errors:true%>
 
-      <ul>
-      <% diet.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <div class="row">
+      <div class="input-field col s6">
+        <%= form.input :begin_date,as: :string%>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <%= form.input :end_date,as: :string%>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <%= form.input :weight, as: :string%>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <%= form.input :height, as: :string%>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <%= form.input :ideal_weight, as: :string%>
+      </div>
+    </div>
+  <h4>Diet Fields</h4>
+    <div id='diet_fields'>
+      <%= form.simple_fields_for :diet_fields do |diet_field| %>
+        <%= render 'diet_field_fields', f: diet_field  %>
       <% end %>
-      </ul>
+    </div>
+
+      <div class="links">
+        <%= link_to_add_association '+ add diet field', form, :diet_fields,class: "btn waves-effect waves-light blue right white-text" %>
+        
+      </div>
+
+    <div class="row">
+      <%= form.button :submit ,class: 'btn btn-primary grey'%>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :begin_date %>
-    <%= form.date_select :begin_date, id: :diet_begin_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :end_date %>
-    <%= form.date_select :end_date, id: :diet_end_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :weight %>
-    <%= form.text_field :weight, id: :diet_weight %>
-  </div>
-
-  <div class="field">
-    <%= form.label :height %>
-    <%= form.text_field :height, id: :diet_height %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ideal_weight %>
-    <%= form.text_field :ideal_weight, id: :diet_ideal_weight %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

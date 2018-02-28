@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226125002) do
+ActiveRecord::Schema.define(version: 20180228140044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "diet_fields", force: :cascade do |t|
+    t.time "schedule"
+    t.text "description"
+    t.string "meal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "diet_id"
+  end
 
   create_table "diets", force: :cascade do |t|
     t.date "begin_date"
@@ -43,4 +52,15 @@ ActiveRecord::Schema.define(version: 20180226125002) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "weights", force: :cascade do |t|
+    t.float "value"
+    t.date "weight_date"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "diet_id"
+    t.index ["user_id"], name: "index_weights_on_user_id"
+  end
+
+  add_foreign_key "weights", "users"
 end

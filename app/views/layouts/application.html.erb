@@ -19,7 +19,6 @@
 
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-
         <%- if current_user.blank?%>
         <li>
 
@@ -29,26 +28,27 @@
         <% end %>  
 
         <%- if current_user.blank?%>
-        <li>
+          <li>
 
-          <%= link_to 'Sign Up',    new_user_registration_path%>
+            <%= link_to 'Sign Up',    new_user_registration_path%>
 
-        </li>
-          <% end %>
+          </li>
+        <% end %>
           
         <%- if current_user.present?%>
-        <li>
-          <%= link_to 'Add your Weight', weights_path %>
+          <li>
+            <%= link_to 'Add your Weight', weights_path %>
 
-        </li>
+          </li>
 
           <li>
           
-            <i class="material-icons">close</i>
-            <%= link_to('Log out'.html_safe,  destroy_user_session_path , method: 'delete')%>
+            <%= link_to('Log out'.html_safe,  destroy_user_session_path , method: 'delete',class: 'waves-effect waves-light btn')%>
           </li>
         <% end %>
       </ul>
+
+
     </div>
   </nav>
   <div class="section no-pad-bot" id="index-banner">

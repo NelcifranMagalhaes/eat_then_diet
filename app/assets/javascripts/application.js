@@ -10,7 +10,3 @@
 //= require cocoon
 //= require rails-ujs
 //= require_tree .
-
-  $(document).ready(function(){
-    $('.datepicker').datepicker();
-  });

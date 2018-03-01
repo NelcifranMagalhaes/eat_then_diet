@@ -19,7 +19,7 @@
 
 	    <div class="row">
 	      <div class="input-field col s6">
-	        <%= f.association :diet, label_method: :begin_date,collection: Diet.where(user_id: current_user.id), prompt: "Choose a Diet"%>
+	        <%= f.association :diet, label_method: :begin_date,collection: Diet.where(user_id: current_user.id), prompt: "Choose a Diet [Begin Date]"%>
 
 	      </div>
 	    </div>

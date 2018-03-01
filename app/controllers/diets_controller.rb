@@ -5,7 +5,7 @@ class DietsController < ApplicationController
   # GET /diets
   # GET /diets.json
   def index
-    @diets = Diet.all
+    @diets = Diet.where(user_id: current_user.id)
   end
 
   # GET /diets/1

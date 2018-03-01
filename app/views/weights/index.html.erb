@@ -20,9 +20,9 @@
         <td><%= weight.weight_date %></td>
         <td><%= weight.diet.begin_date if weight.diet.present?%> / <%=weight.diet.end_date if weight.diet.present?%></td>
 
-        <td><%= link_to 'Show', weight %></td>
-        <td><%= link_to 'Edit', edit_weight_path(weight) %></td>
-        <td><%= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', weight ,class: 'waves-effect waves-light btn'%></td>
+        <td><%= link_to 'Edit', edit_weight_path(weight) ,class: 'btn btn-primary grey'%></td>
+        <td><%= link_to 'Destroy', weight, class: 'btn-flat waves-effect waves-light red', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Weight', new_weight_path %>
+<%= link_to 'New Weight', new_weight_path ,class: 'btn btn-primary grey' %>

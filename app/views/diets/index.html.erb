@@ -2,34 +2,23 @@
 
 <h1>Diets</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Begin date</th>
-      <th>End date</th>
-      <th>Weight</th>
-      <th>Height</th>
-      <th>Ideal weight</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <% @diets.each do |diet| %>
 
-  <tbody>
-    <% @diets.each do |diet| %>
-      <tr>
-        <td><%= diet.begin_date %></td>
-        <td><%= diet.end_date %></td>
-        <td><%= diet.weight %></td>
-        <td><%= diet.height %></td>
-        <td><%= diet.ideal_weight %></td>
-        <td><%= link_to 'Show', diet %></td>
-        <td><%= link_to 'Edit', edit_diet_path(diet) %></td>
-        <td><%= link_to 'Destroy', diet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="card">
 
-<br>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4"><%= diet.begin_date %> / <%= diet.end_date %><i class="material-icons right">more_vert</i></span>
+        <p><%= link_to 'Show', diet ,class: 'waves-effect waves-light btn' %></p>
+        <p><%= link_to 'Edit', edit_diet_path(diet) ,class: 'btn btn-primary grey' %></p>
+        <p><%= link_to 'Destroy', diet, class: 'btn-flat waves-effect waves-light red', method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+        <p>Ideal weight: <%= diet.ideal_weight %></p>
+        <p>Weight: <%= diet.weight %></p>
 
-<%= link_to 'New Diet', new_diet_path %>
+      </div>
+    </div>
+
+  <% end %>
+<%= link_to 'New Diet', new_diet_path ,class: 'btn btn-primary grey'%>

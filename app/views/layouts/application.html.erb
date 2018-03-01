@@ -9,12 +9,13 @@
   </head>
 
 <body>
-  <nav>
-    <div class="nav-wrapper">
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
       <%= link_to root_path, title: "Eat Then", class: "brand-logo" do %>
         <%= image_tag "goku.jpg", title: "Eat Then Diet", style:"width: 28px;" %>
         Eat Then Diet
       <% end %>
+
 
       <ul id="nav-mobile" class="right hide-on-med-and-down">
 
@@ -43,8 +44,8 @@
 
           <li>
           
-              <i class="material-icons">close</i>
-              <%= link_to('Log out'.html_safe,  destroy_user_session_path , method: 'delete')%>
+            <i class="material-icons">close</i>
+            <%= link_to('Log out'.html_safe,  destroy_user_session_path , method: 'delete')%>
           </li>
         <% end %>
       </ul>
@@ -52,6 +53,11 @@
   </nav>
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
+    <%- if current_user.present?%>
+      <div class="row">
+        <%= current_user.email%>
+      </div>
+    <% end %>
       <div class="card">
       <div class="card-content">
         <div class="row">

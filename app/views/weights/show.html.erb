@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Value:</strong>
-  <%= @weight.value %>
-</p>
+<div class="row">
 
-<p>
-  <strong>Weight date:</strong>
-  <%= @weight.weight_date %>
-</p>
+	<div class="col s6">
+	  <strong>Value:</strong>
+	  <%= @weight.value %>
+	</div>
 
-<%= link_to 'Edit', edit_weight_path(@weight) %> |
-<%= link_to 'Back', weights_path %>
+	<div class="col s6">
+	  <strong>Weight date:</strong>
+	  <%= @weight.weight_date %>
+	</div>
+</div>
+
+<div class="row">
+	<%= link_to 'Edit', edit_weight_path(@weight),class: 'btn btn-primary grey' %> |
+	<%= link_to 'Back', weights_path,class: 'waves-effect waves-light btn' %>
+</div>

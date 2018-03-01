@@ -1,31 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div id="notice"><%= notice %></div>
+<div class="row">
+  <h4>Diet</h4>
+  <div class="col s6">
+    <strong>Begin date:</strong>
+    <%= @diet.begin_date %>
+  </div>
 
-<p>
-  <strong>Begin date:</strong>
-  <%= @diet.begin_date %>
-</p>
+  <div class="col s6">
+    <strong>End date:</strong>
+    <%= @diet.end_date %>
+  </div>
 
-<p>
-  <strong>End date:</strong>
-  <%= @diet.end_date %>
-</p>
+  <div class="col s6">
+    <strong>Weight:</strong>
+    <%= @diet.weight %>
+  </div>
 
-<p>
-  <strong>Weight:</strong>
-  <%= @diet.weight %>
-</p>
+  <div class="col s6">
+    <strong>Height:</strong>
+    <%= @diet.height %>
+  </div>
 
-<p>
-  <strong>Height:</strong>
-  <%= @diet.height %>
-</p>
+  <div class="col s6">
+    <strong>Ideal weight:</strong>
+    <%= @diet.ideal_weight %>
+  </div>
+  <div class="col s12">
+      <h4>Diet Fields</h4>
+    <% if @diet.diet_fields.present?%>
+      <% @diet.diet_fields.each do |df| %>
+        <div class="divider"></div>
+        <p>Time : <%= df.schedule %></p>
+        <p>Description: <%= df.description %></p>
+        <p>Meal: <%= df.meal %></p>
+        <div class="divider"></div>
+      <% end %>
+    <% end %>
+  </div>
 
-<p>
-  <strong>Ideal weight:</strong>
-  <%= @diet.ideal_weight %>
-</p>
+</div>
+<div class="row">
+  <h4>Graph</h4>
 
-<%= link_to 'Edit', edit_diet_path(@diet) %> |
-<%= link_to 'Back', diets_path %>
+  <%= line_chart @diet.weights.map { |weight| [weight.weight_date, weight.value] }  %>
+</div>
 
-<%= line_chart @diet.weights.map { |weight| [weight.weight_date, weight.value] }  %>
+<div class="row">
+  <%= link_to 'Edit', edit_diet_path(@diet) ,class: 'btn btn-primary grey'%> |
+  <%= link_to 'Back', diets_path ,class: 'waves-effect waves-light btn'%>
+</div>

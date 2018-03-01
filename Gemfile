@@ -31,7 +31,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'chartkick' #gem de graficos
-
+gem 'bcrypt', platforms: :ruby
 gem 'faker'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

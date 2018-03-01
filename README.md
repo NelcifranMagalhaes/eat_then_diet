@@ -45,7 +45,7 @@ Remember to delete the database every time before running the seed.
 
 ## Meta
 
-Nelcifran Magalhaes – [@Linkedin](www.linkedin.com/in/nelcifranpires
+Nelcifran Magalhaes – [@Linkedin](https://www.linkedin.com/in/nelcifranpires/
 ) – nelcifranpires@gmail.com
 
 

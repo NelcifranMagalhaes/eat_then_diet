@@ -25,9 +25,10 @@ During the period of the diet can be added their measured weight each day until 
 In development there are some diets ,weights,user and diets fields added
 
 ```sh
-rake db:create
-rake db:migrate
-rake db:seed
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
 rails s
 ```
 

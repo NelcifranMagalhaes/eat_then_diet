@@ -23,36 +23,35 @@ user2 = User.create( email: 'sasuke@gmail.com' ,password: '123456')
 5.times do |index|
 	Diet.create!(
 
-	begin_date: Faker::Date.between(2.years.ago, Date.today),
-	end_date: Faker::Date.between(2.years.ago, Date.today),
-	weight: Faker::Number.between(60.75, 200.30),
-	height: Faker::Number.between(1.2, 2.75),
-	ideal_weight: Faker::Number.between(60.25, 80.65),
-	user_id: 1
+	begin_date: Faker::Date.between(from: 2.years.ago, to: Date.today),
+	end_date: Faker::Date.between(from: 2.years.ago, to: Date.today),
+	weight: Faker::Number.between(from: 60.75, to: 200.30),
+	height: Faker::Number.between(from: 1.2, to: 2.75),
+	ideal_weight: Faker::Number.between(from: 60.25, to: 80.65),
+	user_id: user1.id
     )
 
 end
 
-20.times do |index|
-	DietField.create!(
 
-	schedule: Faker::Time.between(60.days.ago, Date.today, :all),
+20.times do |index|
+diet_id = Diet.pluck(:id).shuffle.first
+	DietField.create!(
+	schedule: Faker::Time.between(from: 60.days.ago, to: Date.today),
 	description: Faker::Lorem.paragraph,
 	meal: ["Dinner","Lunch","Snack","Breakfast"].sample,
-	diet_id: Faker::Number.between(1,5)
-
+	diet_id: diet_id
     )
 
 end
 
 40.times do |index|
+	diet_id = Diet.pluck(:id).shuffle.first
 	Weight.create!(
-
-	value: Faker::Number.decimal(2),
-	weight_date: Faker::Date.between(2.years.ago, Date.today),
-	user_id: 1,
-	diet_id: Faker::Number.between(1,5)
-
+	value: Faker::Number.decimal(l_digits: 2),
+	weight_date: Faker::Date.between(from: 2.years.ago, to: Date.today),
+	user_id: user1.id,
+	diet_id: diet_id
     )
 
 end
